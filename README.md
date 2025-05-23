@@ -6,8 +6,8 @@ Key Features
 -Latent features: Learned through state-of-the-art protein language models (BioBERT, ProtBERT, ESM-1b, ESM-2, etc.)
 
 ​Two-Task Framework:
--📊 Classification: Binary prediction of thermophilic vs. mesophilic proteins
--🔢 Regression: Temperature difference prediction between homologous pairs
+- 📊 Classification: Binary prediction of thermophilic vs. mesophilic proteins
+- 🔢 Regression: Temperature difference prediction between homologous pairs
 
 ​Hierarchical Modeling:
 Baseline models using individual feature types (SVM/RF)
