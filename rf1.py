@@ -8,7 +8,7 @@ from math import sqrt
 import numpy as np
 
 # 读取数据
-df = pd.read_csv("D:\\pythonProject\\论文复现\\realPAAC5.csv")
+df = pd.read_csv("../Data/data1.csv")
 array = df.values
 
 # Features and target
