@@ -56,8 +56,8 @@ def save_to_csv(encoded_sequences, output_file):
     df.to_csv(output_file, index=False)  # 保存为CSV文件
 
 if __name__ == "__main__":
-    input_file = "D:\\pythonProject\\realdata11.txt"  # 替换为你的FASTA文件名
-    output_file = "D:\\pythonProject\\encoded_proteins.csv"  # 输出的CSV文件名
+    input_file = "../Data/data1.txt"  # 替换为你的FASTA文件名
+    output_file = "../Data/data1.csv"  # 输出的CSV文件名
     encoded_sequences = protbert(input_file)
     save_to_csv(encoded_sequences, output_file)
 
