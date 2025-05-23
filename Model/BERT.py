@@ -13,7 +13,7 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 1. 读取数据
-df = pd.read_csv('D:\\Pycharm\\BERT\\realdata1.csv')
+df = pd.read_csv('../Data/data1.csv')
 
 # 2. 分类标签生成
 tm = 60
