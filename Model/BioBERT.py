@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # 读取数据
-df = pd.read_csv('D:\\Pycharm\\BERT\\realdata1.csv')
+df = pd.read_csv('../Data/data1.csv')
 tm_threshold = 60
 df['category'] = np.where(df['Tm Protein'] > tm_threshold, 'thermo', 'meso')
 df['Tm'] = df['category'].replace({'thermo': 0, 'meso': 1})
