@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from imblearn.over_sampling import SMOTE
 
 # 读取数据
-file_path = 'D:\\pythonProject\\论文复现\\ESM650+te.csv'
+file_path = '../Data/data2.csv'
 data = pd.read_csv(file_path)
 
 # 选择目标值和特征值
