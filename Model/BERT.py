@@ -12,21 +12,20 @@ warnings.filterwarnings('ignore')
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
-# 1. 读取数据
 df = pd.read_csv('../Data/data1.csv')
 
-# 2. 分类标签生成
+
 tm = 60
 df['category'] = np.where(df['Tm Protein'] > tm, 'thermo', 'meso')
 df['Tm'] = df['category'].replace(['thermo', 'meso'], [0, 1])
 df1 = df.drop(['Tm Protein', 'Protein_ID', 'category'], axis=1)
 
-# 3. 提取序列和标签
+
 data = df1
 sequences = data['Sequence']
 Tm = data['Tm']
 
-# 4. BERT 词向量提取函数
+
 def get_bert_embeddings(sequence):
     tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
     model = BertModel.from_pretrained("bert-base-uncased")
@@ -36,29 +35,29 @@ def get_bert_embeddings(sequence):
         sequence_embeddings = outputs.pooler_output
     return sequence_embeddings.numpy()
 
-# 5. 执行 BERT 编码
+
 embeddings = [get_bert_embeddings(seq) for seq in sequences]
 embeddings_flattened = [emb.flatten() for emb in embeddings]
 X = np.array(embeddings_flattened)
 y = Tm.values
 
-# 6. 训练集/测试集划分
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)
 
-# 7. 定义参数网格
+
 param_grid = {
     'C': [1],
     'gamma': [1],
     'kernel': ['linear']
 }
 
-# 8. 交叉验证初始化
+
 skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
 fold_results = []
 best_score = 0
 fold = 1
 
-# 9. 交叉验证训练
+
 for train_index, val_index in skf.split(X_train, y_train):
     print(f"\nFold {fold}:")
     X_train_fold, X_val_fold = X_train[train_index], X_train[val_index]
@@ -102,17 +101,16 @@ for train_index, val_index in skf.split(X_train, y_train):
 
     fold += 1
 
-# 10. 输出最佳结果
+
 print(f"\nBest Fold: {best_fold}")
 print(f"Best Fold Parameters: {best_params}")
 print(f"Best Fold Accuracy: {best_score:.4f}")
 
-# 11. 在整个训练集上训练最终模型
+
 final_model = SVC(**best_params)
 final_model.fit(X_train, y_train)
 
-# 12. 在测试集上评估
-# 12. 在测试集上评估
+
 y_test_pred = final_model.predict(X_test)
 
 accuracy_test = accuracy_score(y_test, y_test_pred)
