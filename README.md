@@ -8,7 +8,7 @@ The protein dataset used in this study is sourced from the research by Leuenberg
 
 ### ​Dual Feature Extraction:
 - Explicit features: Extracted using iLearnPlus (not included)
-- Implicit features: Learned through state-of-the-art protein language models (BioBERT, ProtBERT, ESM-1b, ESM-2, etc.),All the related code files are stored in the model/ folder.
+- Implicit features: Learned through state-of-the-art protein language models (BioBERT, ProtBERT, ESM-1b, ESM-2, etc.),All the related code files are stored in the Extraction of Implicit Features/ folder.
 
 ## Code and Model
 
