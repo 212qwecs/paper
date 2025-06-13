@@ -73,8 +73,6 @@ test.py: This script loads a pre-trained model and makes predictions on the test
 
 model.py: Defines the model architecture, including the feature fusion process and how explicit and latent features are combined.
 
-utils.py: Contains utility functions for data preprocessing, feature extraction, and evaluation metrics.
-
 ## Key Features of the Framework
 ### ​Two-Task Framework:
 - 📊 Classification: Binary prediction of thermophilic vs. mesophilic proteins
