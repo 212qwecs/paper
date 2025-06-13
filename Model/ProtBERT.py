@@ -48,16 +48,16 @@ def protbert(file):
     return np.array(encoded_sequences)
 
 def save_to_csv(encoded_sequences, output_file):
-    # 将编码结果转换为DataFrame
+   
     # df = pd.DataFrame(encoded_sequences, columns=['Name', 'Encoding'])
     df = pd.DataFrame(encoded_sequences)
-    # 将编码数组转换为字符串以便保存
-    # df['Encoding'] = df['Encoding'].apply(lambda x: x.tolist())  # 转换为列表
-    df.to_csv(output_file, index=False)  # 保存为CSV文件
+   
+    # df['Encoding'] = df['Encoding'].apply(lambda x: x.tolist())  
+    df.to_csv(output_file, index=False) 
 
 if __name__ == "__main__":
-    input_file = "../Data/data1.txt"  # 替换为你的FASTA文件名
-    output_file = "../Data/data1.csv"  # 输出的CSV文件名
+    input_file = "../Data/data1.txt"  
+    output_file = "../Data/data1.csv" 
     encoded_sequences = protbert(input_file)
     save_to_csv(encoded_sequences, output_file)
 
