@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from imblearn.over_sampling import SMOTE
 
 
-file_path = '../Data/data2.csv'
+file_path = '../Data/train.csv'
 data = pd.read_csv(file_path)
 
 
