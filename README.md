@@ -54,11 +54,11 @@ Test the model on the dataset at <path_to_test_data> and output the predictions.
 
 Example Usage
 Here’s an example of how you might use the training and testing process:
-# Training the model
+### Training the model
 ```
 python train.py --data_path data/train.csv --output_dir models/
 ```
-# Testing the model
+### Testing the model
 ```
 python test.py --model_path models/model_best.pth --data_path data/test.csv
 ```
