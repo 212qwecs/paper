@@ -8,7 +8,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 import warnings
 warnings.filterwarnings('ignore')
 
-# 读取数据
+
 df = pd.read_csv('../Data/data1.csv')
 tm_threshold = 60
 df['category'] = np.where(df['Tm Protein'] > tm_threshold, 'thermo', 'meso')
@@ -18,7 +18,7 @@ df1 = df.drop(['Tm Protein', 'Protein_ID', 'category'], axis=1)
 sequences = df1['Sequence'].tolist()
 labels = df1['Tm'].values
 
-# 加载模型和tokenizer
+
 tokenizer = AutoTokenizer.from_pretrained("biobert")
 model = AutoModel.from_pretrained("biobert")
 
@@ -33,10 +33,10 @@ embeddings = [get_bert_embeddings(seq) for seq in sequences]
 X = np.array(embeddings)
 y = labels
 
-# 划分训练集和测试集
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)
 
-# 定义参数空间和折数
+
 NUM_FOLDS = 10
 param_grid = {
     'C': [6],
@@ -88,11 +88,11 @@ avg_mcc = np.mean(mcc_scores)
 print(f"\navg_mcc：{avg_mcc:.4f}")
 print(f"\n交叉验证选出的最佳参数：{best_params}")
 
-# 用最佳参数训练整个训练集
+
 final_model = SVC(**best_params)
 final_model.fit(X_train, y_train)
 
-# 测试集评估
+
 y_test_pred = final_model.predict(X_test)
 precision_test = precision_score(y_test, y_test_pred, zero_division=0)
 recall_test = recall_score(y_test, y_test_pred, zero_division=0)
