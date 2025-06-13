@@ -14,15 +14,17 @@ The protein dataset used in this study is sourced from the research by Leuenberg
 
 ### Installing Dependencies
 
-#### First, clone this repository:
+First, clone this repository:
 
 ```bash
 git clone https://github.com/212qwecs/paper.git
 cd paper
+```
 
-#### Next, install the required dependencies by running:
-
+Next, install the required dependencies by running:
+```
 pip install -r requirements.txt
+```
 This will install all the necessary libraries and frameworks needed for running the code, including those for machine learning, data preprocessing, and visualization.
 
 Running the Code
