@@ -30,7 +30,9 @@ This will install all the necessary libraries and frameworks needed for running 
 Running the Code
 Training the Model
 To train the model using the dataset, run the following command in the root directory of the repository:
+```
 python train.py --data_path <path_to_data> --output_dir <path_to_save_model>
+```
 This will:
 
 Load the data from the provided <path_to_data>.
@@ -41,7 +43,9 @@ Save the trained model to the specified <path_to_save_model> directory.
 
 Testing the Model
 To evaluate the model on a new dataset or make predictions, run the following command:
+```
 python test.py --model_path <path_to_trained_model> --data_path <path_to_test_data>
+```
 This will:
 
 Load the model from <path_to_trained_model>.
@@ -51,23 +55,16 @@ Test the model on the dataset at <path_to_test_data> and output the predictions.
 Example Usage
 Here’s an example of how you might use the training and testing process:
 # Training the model
+```
 python train.py --data_path data/train.csv --output_dir models/
-
+```
 # Testing the model
+```
 python test.py --model_path models/model_best.pth --data_path data/test.csv
+```
 This will:
-
 Load the model from <path_to_trained_model>.
-
 Test the model on the dataset at <path_to_test_data> and output the predictions.
-
-Example Usage
-Here’s an example of how you might use the training and testing process:
-# Training the model
-python train.py --data_path data/train.csv --output_dir models/
-
-# Testing the model
-python test.py --model_path models/model_best.pth --data_path data/test.csv
 
 Code Explanation
 train.py: This script is used to train the model. It accepts the training data, processes the features, and uses machine learning algorithms like SVM or RF for model training.
